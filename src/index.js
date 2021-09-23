@@ -39,7 +39,27 @@ function createRandomNumber(minNumber, maxNumber) {
     return num;
 }
 
-
 // - Eine Funktion mit der wir den ersten Buchstaben des jeweiligen Wortes groß schreiben (PascalCase)
+/**
+ * @function capitalizeString
+ * @description Takes the first letter of a string and changes it to UpperCase, then returns string
+ * @param {string} word 
+ * @returns {string}
+ */
+function capitalizeString(word) {
+    // Prüfe ob ein Wort vorhanden ist
+    if (word === undefined || word.length === 0 || !isNaN(word)) {
+        return 'Default'
+    }
+    // Wir nehmen den ersten Buchstaben von unserem String, und ändern ihn auf UpperCase
+    const wordStart = word.charAt(0).toUpperCase();
+
+    // Wir nehmen den Rest des Strings und ändern ihn auf LowerCase
+    const wordRest = word.substring(1).toLowerCase();
+
+    // Wir geben das fertige String zurück
+    return wordStart + wordRest;
+}
+
 // - Eine Funktion mit der wir den Benutzernamen generieren und auf die Ergebnisse der anderen Funktionen zugreifen
 // - Ein export, um die Applikation in einer anderen Datei zu nutzen
