@@ -62,4 +62,28 @@ function capitalizeString(word) {
 }
 
 // - Eine Funktion mit der wir den Benutzernamen generieren und auf die Ergebnisse der anderen Funktionen zugreifen
+/**
+ * @function createRandomUserName
+ * @description Creates a random username
+ * @param {number} maxNumber 
+ * @returns {string}
+ */
+function createRandomUserName(maxNumber = 50000) {
+
+    // Wir holen uns die Wörter
+    const words = getWords();
+
+    // Wir holen uns aus der Wortliste die Adjektive
+    const adj = words.adjs[Math.floor(Math.random() * (words.adjs.length - 1))];
+
+    // Wir holen uns aus der Wortliste die Nomen
+    const noun = words.nouns[Math.floor(Math.random() * (words.nouns.length - 1))];
+
+    // Wir holen uns unsere Zufallszahl
+    const randomNumber = createRandomNumber(10000, maxNumber);
+
+    const finalUserName = `${capitalizeString(adj)}${capitalizeString(noun)}${maxNumber!==0 ? randomNumber:''}`;
+    return randomNumber;
+}
+
 // - Ein export, um die Applikation in einer anderen Datei zu nutzen
